@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Booking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+<div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-6 text-center">Edit Booking</h2>
+    <div th:if="${error}" class="bg-red-100 text-red-700 px-4 py-2 rounded mb-4" th:text="${error}"></div>
+    <form th:action="@{/admin/bookings/update/{id}(id=${booking.id})}" method="post" class="flex flex-col gap-4">
+        <div>
+            <label class="block mb-1 font-medium">Customer Name</label>
+            <input type="text" name="customerName" th:value="${booking.customerName}" required class="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"/>
+        </div>
+        <div>
+            <label class="block mb-1 font-medium">Email</label>
+            <input type="email" name="email" th:value="${booking.email}" required class="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"/>
+        </div>
+        <div>
+            <label class="block mb-1 font-medium">Payment Status</label>
+            <input type="text" th:value="${booking.paymentStatus}" readonly class="w-full border bg-gray-100 px-3 py-2 rounded text-gray-600"/>
+        </div>
+        <div>
+            <label class="block mb-1 font-medium">Package</label>
+            <select name="packageId" required class="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <option th:each="pkg : ${packages}" th:value="${pkg.id}" th:text="${pkg.name}" th:selected="${booking.pkg != null and booking.pkg.id == pkg.id}"></option>
+            </select>
+        </div>
+        <div>
+            <label class="block mb-1 font-medium">Check-in Date</label>
+            <input type="date" name="checkInDate" th:value="${booking.checkInDate}" required class="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"/>
+        </div>
+        <div>
+            <label class="block mb-1 font-medium">Check-out Date</label>
+            <input type="date" name="checkOutDate" th:value="${booking.checkOutDate}" required class="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"/>
+        </div>
+        <div>
+            <label class="block mb-1 font-medium">Room</label>
+            <select name="roomId" required class="w-full border px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <option th:each="room : ${rooms}" th:value="${room.id}" th:text="${room.type} + ' - $' + ${room.price}" th:selected="${booking.room != null and booking.room.id == room.id}"></option>
+            </select>
+        </div>
+        <div class="flex gap-3 mt-2">
+            <a th:href="@{/admin/dashboard}" class="w-1/2 text-center border border-gray-300 hover:bg-gray-100 py-2 rounded font-medium">Cancel</a>
+            <button type="submit" class="w-1/2 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded font-semibold">Save Changes</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave a Review</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" th:href="@{/css/hotel-ui.css}">
+</head>
+<body class="hotel-bg">
+<main class="page-shell flex items-center justify-center">
+    <section class="glass-panel w-full max-w-lg rounded-2xl p-6 sm:p-8">
+        <div class="mb-6 text-center">
+            <span class="step-pill">Guest review</span>
+            <h1 class="mt-3 text-3xl font-extrabold text-slate-900">Share Your Stay</h1>
+            <p class="mt-2 text-slate-500">Your feedback helps future guests choose with confidence.</p>
+        </div>
+        <form th:action="@{/reviews/save}" th:object="${review}" method="post" class="space-y-4">
+            <div>
+                <label class="mb-2 block text-sm font-bold text-slate-700">Your Name</label>
+                <input type="text" th:field="*{customerName}" required class="field w-full bg-white">
+            </div>
+            <div>
+                <label class="mb-2 block text-sm font-bold text-slate-700">Comment</label>
+                <textarea th:field="*{comment}" required rows="5" class="field w-full bg-white"></textarea>
+            </div>
+            <div>
+                <label class="mb-2 block text-sm font-bold text-slate-700">Rating</label>
+                <select name="rating" required class="field w-full bg-white">
+                    <option value="">Select Rating</option>
+                    <option value="1">1 - Poor</option>
+                    <option value="2">2 - Fair</option>
+                    <option value="3">3 - Good</option>
+                    <option value="4">4 - Very Good</option>
+                    <option value="5">5 - Excellent</option>
+                </select>
+            </div>
+            <div class="flex flex-col gap-3 pt-2 sm:flex-row">
+                <a th:href="@{/}" class="secondary-btn flex-1">Back</a>
+                <button type="submit" class="success-btn flex-1">Submit Review</button>
+            </div>
+        </form>
+    </section>
+</main>
+</body>
+</html>

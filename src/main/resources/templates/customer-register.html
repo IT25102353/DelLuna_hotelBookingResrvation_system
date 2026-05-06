@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Signup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" th:href="@{/css/hotel-ui.css}">
+</head>
+<body class="hotel-bg">
+<main class="page-shell flex items-center justify-center">
+    <section class="glass-panel w-full max-w-lg rounded-2xl p-6 sm:p-8">
+        <div class="mb-6 text-center">
+            <span class="step-pill">Create account</span>
+            <h1 class="mt-3 text-3xl font-extrabold text-slate-900">Start Your Booking</h1>
+            <p class="mt-2 text-slate-500">Create a customer profile before choosing your package.</p>
+        </div>
+        <div th:if="${error}" class="mb-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700" th:text="${error}"></div>
+        <form th:action="@{/customers/save}" th:object="${customer}" method="post" class="space-y-4">
+            <div>
+                <label class="mb-2 block text-sm font-bold text-slate-700">Name</label>
+                <input type="text" th:field="*{name}" required class="field w-full bg-white">
+            </div>
+            <div>
+                <label class="mb-2 block text-sm font-bold text-slate-700">Email</label>
+                <input type="email" th:field="*{email}" required class="field w-full bg-white">
+            </div>
+            <div>
+                <label class="mb-2 block text-sm font-bold text-slate-700">Phone Number</label>
+                <input type="text" th:field="*{phone_number}" required class="field w-full bg-white">
+            </div>
+            <div>
+                <label class="mb-2 block text-sm font-bold text-slate-700">Password</label>
+                <input type="password" th:field="*{password}" required class="field w-full bg-white">
+            </div>
+            <button type="submit" class="primary-btn w-full">Sign Up</button>
+        </form>
+        <div class="mt-5 grid gap-2 text-center text-sm font-semibold">
+            <a th:href="@{/customers/login}" class="text-blue-700 hover:text-blue-900">Already have an account?</a>
+            <a th:href="@{/}" class="text-slate-500 hover:text-slate-800">Back to Home</a>
+        </div>
+    </section>
+</main>
+</body>
+</html>
