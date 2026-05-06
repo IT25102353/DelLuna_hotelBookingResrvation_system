@@ -1,5 +1,7 @@
 package com.example.haseka.controller;
 
+import com.example.haseka.service.FileStorageService;
+import com.example.haseka.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
