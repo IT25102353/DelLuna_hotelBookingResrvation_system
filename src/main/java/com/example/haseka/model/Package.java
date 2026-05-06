@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.List;
 @Entity
-@Table(name="package")git
+@Table(name="package")
 public class Package {
 
     @Id
