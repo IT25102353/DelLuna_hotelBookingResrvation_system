@@ -1,0 +1,144 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: #1f2937;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.hotel-bg {
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(239, 246, 255, 0.92)),
+        url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1800&q=80") center/cover fixed;
+}
+
+.hotel-dark-bg {
+    background:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.86), rgba(30, 64, 175, 0.72)),
+        url("https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1800&q=80") center/cover;
+}
+
+.glass-panel {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    box-shadow: 0 24px 70px rgba(15, 23, 42, 0.14);
+    backdrop-filter: blur(18px);
+}
+
+.soft-card {
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 16px 44px rgba(15, 23, 42, 0.08);
+}
+
+.field {
+    border: 1px solid #cbd5e1;
+    border-radius: 0.75rem;
+    min-height: 2.75rem;
+    padding: 0.65rem 0.9rem;
+    transition: border-color 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+
+.field:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.16);
+    outline: none;
+}
+
+.primary-btn,
+.secondary-btn,
+.success-btn {
+    align-items: center;
+    border-radius: 0.75rem;
+    display: inline-flex;
+    font-weight: 700;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding: 0.7rem 1rem;
+    transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+
+.primary-btn {
+    background: #1d4ed8;
+    color: white;
+    box-shadow: 0 12px 28px rgba(29, 78, 216, 0.25);
+}
+
+.primary-btn:hover {
+    background: #1e40af;
+    transform: translateY(-1px);
+}
+
+.secondary-btn {
+    background: white;
+    border: 1px solid #cbd5e1;
+    color: #334155;
+}
+
+.secondary-btn:hover {
+    background: #f8fafc;
+}
+
+.success-btn {
+    background: #047857;
+    color: white;
+    box-shadow: 0 12px 28px rgba(4, 120, 87, 0.22);
+}
+
+.success-btn:hover {
+    background: #065f46;
+    transform: translateY(-1px);
+}
+
+.page-shell {
+    min-height: 100vh;
+    padding: 1.25rem;
+}
+
+.step-pill {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 999px;
+    color: #1d4ed8;
+    display: inline-flex;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 0.35rem 0.75rem;
+    text-transform: uppercase;
+}
+
+.radio-card {
+    border: 1px solid #dbe3ef;
+    border-radius: 1rem;
+    transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease, background-color 160ms ease;
+}
+
+.radio-card:hover {
+    border-color: #60a5fa;
+    box-shadow: 0 14px 34px rgba(37, 99, 235, 0.12);
+    transform: translateY(-1px);
+}
+
+.radio-card:has(input:checked) {
+    background: #eff6ff;
+    border-color: #2563eb;
+    box-shadow: 0 16px 38px rgba(37, 99, 235, 0.16);
+}
+
+.radio-card:has(input:checked) .select-indicator {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: white;
+}
+
+@media (max-width: 640px) {
+    .page-shell {
+        padding: 0.75rem;
+    }
+
+    .hotel-bg {
+        background-attachment: scroll;
+    }
+}
